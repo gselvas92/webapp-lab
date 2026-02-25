@@ -34,6 +34,21 @@ public class DeviceController {
         return deviceService.findAll(type);
     }
 
+    @GetMapping("/type/jpa")
+    public List<DeviceResponse> getByTypeJpa(@RequestParam DeviceType type) {
+        return deviceService.findByTypeJpa(type);
+    }
+
+    @GetMapping("/type/jpql")
+    public List<DeviceResponse> getByTypeJpql(@RequestParam DeviceType type) {
+        return deviceService.findByTypeJpql(type);
+    }
+
+    @GetMapping("/type/native")
+    public List<DeviceResponse> getByTypeNative(@RequestParam DeviceType type) {
+        return deviceService.findByTypeNative(type);
+    }
+
     @GetMapping("/{id}")
     public DeviceResponse getById(@PathVariable Long id) {
         return deviceService.findById(id);

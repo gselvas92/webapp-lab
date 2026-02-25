@@ -27,6 +27,24 @@ public class DeviceService {
         return devices.stream().map(this::toResponse).toList();
     }
 
+    public List<DeviceResponse> findByTypeJpa(DeviceType type) {
+        return deviceRepository.findByType(type).stream()
+                .map(this::toResponse)
+                .toList();
+    }
+
+    public List<DeviceResponse> findByTypeJpql(DeviceType type) {
+        return deviceRepository.findByTypeUsingJpql(type).stream()
+                .map(this::toResponse)
+                .toList();
+    }
+
+    public List<DeviceResponse> findByTypeNative(DeviceType type) {
+        return deviceRepository.findByTypeUsingNative(type.name()).stream()
+                .map(this::toResponse)
+                .toList();
+    }
+
     public DeviceResponse findById(Long id) {
         return toResponse(getEntityById(id));
     }
