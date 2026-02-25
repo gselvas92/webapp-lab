@@ -10,3 +10,10 @@ app.get('/hello', (req, res) => {
 app.listen(port, () => {
   console.log(`Server running at http://localhost:${port}`);
 });
+
+//
+
+//crea una función para sumar dos números
+function sum(a, b) {
+  return a + b;
+} 
