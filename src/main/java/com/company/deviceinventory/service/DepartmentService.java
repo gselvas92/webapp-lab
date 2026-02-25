@@ -37,7 +37,7 @@ public class DepartmentService {
     public DepartmentResponse update(Long id, DepartmentRequest request) {
         Department department = getEntityById(id);
         department.setName(request.name());
-        return toResponse(departmentRepository.save(department));
+        return  toResponse(departmentRepository.save(department));//toResponse(departmentRepository.save(department));
     }
 
     public void delete(Long id) {
